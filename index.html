@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 90%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .switch-form {
+            color: #007bff;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .switch-form:hover {
+            text-decoration: underline;
+        }
+
+        .form-toggle {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/tprofile.jpg" alt="Logo">
+
+        <div id="login-form">
+            <h2>Log in</h2>
+            <form onsubmit="return loginConfirmation()">
+                <input type="text" placeholder="Enter Username" required>
+                <input type="password" placeholder="Enter Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p class="switch-form" onclick="toggleForms()">Don't have an account? Sign up</p>
+        </div>
+
+        <div id="signup-form" class="form-toggle">
+            <h2>Sign Up</h2>
+            <form onsubmit="return signupConfirmation()">
+                <input type="text" placeholder="Enter Username" required>
+                <input type="email" placeholder="Enter Email" required>
+                <input type="password" placeholder="Enter Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p class="switch-form" onclick="toggleForms()">Already have an account? Login</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            var loginForm = document.getElementById('login-form');
+            var signupForm = document.getElementById('signup-form');
+            
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+            }
+        }
+
+        function loginConfirmation() {
+            window.location.href = "log-in.html";
+            return false;
+        }
+
+        function signupConfirmation() {
+            window.location.href = "sign-up.html";
+            return false;
+        }
+
+        document.getElementById('login-form').style.display = 'block';
+        document.getElementById('signup-form').style.display = 'none';
+    </script>
+</body>
+</html>
